@@ -28,6 +28,6 @@ public class Categoria {
     @Column(nullable = false)
     private byte[] imagen;
 
-    @ManyToMany(mappedBy = "categorias")
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Presupuesto> presupuestos;
 }

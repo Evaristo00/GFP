@@ -7,4 +7,5 @@ public interface UsuarioService {
     Usuario save(Usuario usuario);
     void deleteById(Long id);
     Usuario findById(Long id);
+    Usuario updateUsuario(Long id, Usuario usuario);
 }

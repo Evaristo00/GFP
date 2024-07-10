@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication()
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 @EnableJpaRepositories(basePackages = "gestion.finanzas.personales.gfp.repository")
 //@EntityScan(basePackages = "gestion.finanzas.personales.gfp.entity")
 

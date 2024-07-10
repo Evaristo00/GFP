@@ -33,11 +33,7 @@ public class Presupuesto {
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
-    @ManyToMany
-    @JoinTable(
-            name = "presupuesto_categoria",
-            joinColumns = @JoinColumn(name = "presupuesto_id"),
-            inverseJoinColumns = @JoinColumn(name = "categoria_id")
-    )
-    private Set<Categoria> categorias;
+    @ManyToOne
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private Categoria categoria;
 }
