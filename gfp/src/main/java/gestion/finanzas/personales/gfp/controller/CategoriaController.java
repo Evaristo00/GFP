@@ -1,9 +1,13 @@
 package gestion.finanzas.personales.gfp.controller;
 
+import gestion.finanzas.personales.gfp.dto.CategoriaRequestDto;
+import gestion.finanzas.personales.gfp.dto.CategoriaResponseDto;
 import gestion.finanzas.personales.gfp.model.Categoria;
+import gestion.finanzas.personales.gfp.model.Usuario;
 import gestion.finanzas.personales.gfp.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,8 +32,8 @@ public class CategoriaController {
     }
 
     @PostMapping
-    public ResponseEntity<Categoria> createCategoria(@RequestBody Categoria categoria) {
-        Categoria newCategoria = categoriaService.save(categoria);
+    public ResponseEntity<CategoriaResponseDto> createCategoria(@RequestBody CategoriaRequestDto categoria,@AuthenticationPrincipal Usuario usuario) {
+        CategoriaResponseDto newCategoria = categoriaService.save(categoria);
         return ResponseEntity.ok(newCategoria);
     }
 
