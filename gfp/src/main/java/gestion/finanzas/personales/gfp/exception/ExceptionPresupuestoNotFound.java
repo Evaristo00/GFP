@@ -2,13 +2,13 @@ package gestion.finanzas.personales.gfp.exception;
 
 import gestion.finanzas.personales.gfp.enums.ErrorCodes;
 
-public class PresupuestoNoEncontrado extends CustomException{
+public class ExceptionPresupuestoNotFound extends CustomException{
 
-    public PresupuestoNoEncontrado() {
+    public ExceptionPresupuestoNotFound() {
         super("El presupuesto no existe ", ErrorCodes.PRESUPUESTO_NO_ENCONTRADO);
     }
 
-    public PresupuestoNoEncontrado(String message) {
+    public ExceptionPresupuestoNotFound(String message) {
         super(message,ErrorCodes.PRESUPUESTO_NO_ENCONTRADO);
     }
 }
