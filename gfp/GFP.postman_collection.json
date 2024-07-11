@@ -85,10 +85,17 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "delete",
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcnVlYmRhQHBydWViMmEuY29tIiwiaWF0IjoxNzIwNjU5ODk0LCJleHAiOjE3MjA2NjEzMzR9.AT5wQ1Dp_OWN_b79L8pkyKOIU5cQ6suuwRATmPo1Sq4"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/presupuestos/1"
 					},
 					"response": []
 				}
