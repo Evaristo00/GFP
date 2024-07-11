@@ -12,6 +12,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/presupuestos")
@@ -21,16 +22,16 @@ public class PresupuestoController {
     private PresupuestoService presupuestoService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Presupuesto> getPresupuestoById(@PathVariable Long id, @AuthenticationPrincipal Usuario usuario) {
+    public ResponseEntity<PresupuestoResponseDto> getPresupuestoById(@PathVariable Long id, @AuthenticationPrincipal Usuario usuario) {
         Presupuesto presupuesto = presupuestoService.findById(id,usuario);
-        return ResponseEntity.ok(presupuesto);
+        return ResponseEntity.ok(PresupuestoResponseDto.fromPresupuesto(presupuesto));
     }
 
     @GetMapping("/usuario/{usuarioId}")
     @PreAuthorize("#usuarioId == authentication.principal.id")
-    public ResponseEntity<List<Presupuesto>> getPresupuestosByUsuarioId(@PathVariable Long usuarioId) {
+    public ResponseEntity<List<PresupuestoResponseDto>> getPresupuestosByUsuarioId(@PathVariable Long usuarioId) {
         List<Presupuesto> presupuestos = presupuestoService.findByUsuarioId(usuarioId);
-        return ResponseEntity.ok(presupuestos);
+        return ResponseEntity.ok(presupuestos.stream().map(PresupuestoResponseDto::fromPresupuesto).collect(Collectors.toList()));
     }
 
     @PostMapping
