@@ -65,6 +65,11 @@ Debido a la inflación y la situación general del país, proponemos una aplicac
 
 - **DELETE /api/usuarios/{id}**: Elimina un usuario por ID.
 
+### Balances
+
+- **GET /api/balances**: Obtiene los balances de las categorías financieras del usuario autenticado.
+  - Response: `List<BalanceDto>`
+
 ## Autenticación JWT
 
 Esta aplicación usa JSON Web Tokens (JWT) para la autenticación. Al registrarte o iniciar sesión, recibirás un token JWT que deberás incluir en las cabeceras de tus solicitudes para acceder a los endpoints protegidos.
