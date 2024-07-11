@@ -67,9 +67,11 @@ Clona el repositorio de la aplicación GFP:
 ```sh
 git clone https://github.com/tu-usuario/gfp.git
 cd gfp
+´´´
 
 ### 2. Iniciar los contenedores
 
 Ejecuta el siguiente comando para iniciar los contenedores:
 ```sh
 docker-compose up
+´´´
