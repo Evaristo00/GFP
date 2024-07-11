@@ -11,6 +11,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/gastos")
@@ -20,15 +21,17 @@ public class GastoController {
     private GastoService gastoService;
 
     @GetMapping()
-    public ResponseEntity<List<Gasto>> getGastosByUsuarioId(@AuthenticationPrincipal Usuario usuario) {
+    public ResponseEntity<List<GastosResponseDto>> getGastosByUsuarioId(@AuthenticationPrincipal Usuario usuario) {
         List<Gasto> gastos = gastoService.findByUsuarioId(usuario.getId());
-        return ResponseEntity.ok(gastos);
+        GastosResponseDto response = GastosResponseDto.builder().build();
+        return ResponseEntity.ok(gastos.stream().map(response::fromGasto).collect(Collectors.toList()));
     }
 
     @GetMapping("/categoria/{categoriaId}")
-    public ResponseEntity<List<Gasto>> getGastosByCategoriaId(@PathVariable Long categoriaId,@AuthenticationPrincipal Usuario usuario) {
+    public ResponseEntity<List<GastosResponseDto>> getGastosByCategoriaId(@PathVariable Long categoriaId,@AuthenticationPrincipal Usuario usuario) {
         List<Gasto> gastos = gastoService.findByCategoriaId(categoriaId, usuario);
-        return ResponseEntity.ok(gastos);
+        GastosResponseDto response = GastosResponseDto.builder().build();
+        return  ResponseEntity.ok(gastos.stream().map(response::fromGasto).collect(Collectors.toList()));
     }
 
     @PostMapping
