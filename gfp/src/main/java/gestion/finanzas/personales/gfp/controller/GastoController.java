@@ -1,5 +1,7 @@
 package gestion.finanzas.personales.gfp.controller;
 
+import gestion.finanzas.personales.gfp.dto.GastosRequestDto;
+import gestion.finanzas.personales.gfp.dto.GastosResponseDto;
 import gestion.finanzas.personales.gfp.model.Gasto;
 import gestion.finanzas.personales.gfp.model.Usuario;
 import gestion.finanzas.personales.gfp.service.GastoService;
@@ -30,8 +32,8 @@ public class GastoController {
     }
 
     @PostMapping
-    public ResponseEntity<Gasto> createGasto(@RequestBody Gasto gasto, @AuthenticationPrincipal Usuario usuario) {
-        Gasto newGasto = gastoService.save(gasto,usuario);
+    public ResponseEntity<GastosResponseDto> createGasto(@RequestBody GastosRequestDto gasto, @AuthenticationPrincipal Usuario usuario) {
+        GastosResponseDto newGasto = gastoService.save(gasto,usuario);
         return ResponseEntity.ok(newGasto);
     }
 

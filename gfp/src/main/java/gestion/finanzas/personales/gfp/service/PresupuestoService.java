@@ -12,6 +12,6 @@ public interface PresupuestoService {
 
     List<Presupuesto> findByUsuarioId(Long usuarioId);
     PresupuestoResponseDto save(PresupuestoRequestDto presupuesto, Usuario usuario);
-    void deleteById(Long id);
+    void deleteById(Long id, Usuario usuario);
     Presupuesto findById(Long id, Usuario usuario);
 }

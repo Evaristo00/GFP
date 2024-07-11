@@ -40,8 +40,8 @@ public class PresupuestoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePresupuesto(@PathVariable Long id) {
-        presupuestoService.deleteById(id);
+    public ResponseEntity<Void> deletePresupuesto(@PathVariable Long id, @AuthenticationPrincipal Usuario usuario) {
+        presupuestoService.deleteById(id,usuario);
         return ResponseEntity.noContent().build();
     }
 }
