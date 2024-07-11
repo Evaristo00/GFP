@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "8b452cdc-0bfe-4630-9db5-354dd6a5f85a",
+		"name": "GFP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27190580"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\": \"pruebda@prueba.com\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"pruebda@prueb2a.com\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/auth/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Presupuesto",
+			"item": [
+				{
+					"name": "listPresupuestos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "presupuestoById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"monto\": 0,\r\n  \"mes\": \"ENERO\",\r\n  \"idCategoria\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/presupuestos/"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcnVlYmRhQHBydWViMmEuY29tIiwiaWF0IjoxNzIwNjYwOTA2LCJleHAiOjE3MjA2NjIzNDZ9.lAXXLLYrcZE5CCk1GIXSlyP29Jdv1tUHVdbTLOUTiI4"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"imagen\": \r\n    \"string2\"\r\n  ,\r\n  \"nombre\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/categorias"
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcnVlYmRhQHBydWViMmEuY29tIiwiaWF0IjoxNzIwNjYwNzExLCJleHAiOjE3MjA2NjIxNTF9.eszPVgcQPkNxoRbbXArhIcJChqJ08pbIfn4-veRn_VA"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/categorias/1"
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcnVlYmRhQHBydWViMmEuY29tIiwiaWF0IjoxNzIwNjYwNzExLCJleHAiOjE3MjA2NjIxNTF9.eszPVgcQPkNxoRbbXArhIcJChqJ08pbIfn4-veRn_VA"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/categorias"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcnVlYmRhQHBydWViMmEuY29tIiwiaWF0IjoxNzIwNjYwOTA2LCJleHAiOjE3MjA2NjIzNDZ9.lAXXLLYrcZE5CCk1GIXSlyP29Jdv1tUHVdbTLOUTiI4"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/categorias/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gasto",
+			"item": [
+				{
+					"name": "gastosPorUsuario",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "byCategoriaAndUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcnVlYmRhQHBydWViMmEuY29tIiwiaWF0IjoxNzIwNjYwOTA2LCJleHAiOjE3MjA2NjIzNDZ9.lAXXLLYrcZE5CCk1GIXSlyP29Jdv1tUHVdbTLOUTiI4"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/gastos/categoria/2"
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"monto\": 0,\r\n  \"idCategoria\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/gastos"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcnVlYmRhQHBydWViMmEuY29tIiwiaWF0IjoxNzIwNjYyNjc0LCJleHAiOjE3MjA2NjQxMTR9.TC2gjqc6jMmPBR-uTzrtJflI8Hm2DXJmkAxetRSvHOQ"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/gastos/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Balance",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcnVlYmRhQHBydWViMmEuY29tIiwiaWF0IjoxNzIwNzA0MTgwLCJleHAiOjE3MjA3MDU2MjB9.jfpBgEX2EP61-Ld8sO2F2xl83msPvylSM-TJhFFnEo4"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/balances"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
